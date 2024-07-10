@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.pageLoadTimeout;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -16,12 +17,13 @@ public class testTextBox {
     static void beforAll(){
         Configuration.browserSize ="1920x1080";
         Configuration.baseUrl= "https://demoqa.com";
+        Configuration.timeout = 35000;
     }
 
     @Test
     void fileFromTest(){
-        Selenide.withTimeout(5000).open("/text-box");
-//         open("/text-box");
+        open("/text-box");
+
         $("#userName").setValue("Svetlana Kirchenko");
         $("#userEmail").setValue("svetlana@kirchenko.ru");
         $("#currentAddress").setValue("Stavropol, Mira 123");
