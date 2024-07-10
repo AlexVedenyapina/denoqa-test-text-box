@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,7 +20,8 @@ public class testTextBox {
 
     @Test
     void fileFromTest(){
-        open("/text-box");
+        Selenide.withTimeout(5000).open("/text-box");
+//         open("/text-box");
         $("#userName").setValue("Svetlana Kirchenko");
         $("#userEmail").setValue("svetlana@kirchenko.ru");
         $("#currentAddress").setValue("Stavropol, Mira 123");
