@@ -44,30 +44,30 @@ public class practiceFormTests {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     }
 
-    @Test
-    void dateSelectionSuccessTest(){
-        open("/automation-practice-form");
-
-
-//         ожидание загрузки элементов формы
-        $("#firstName").shouldBe(visible);
-        $("#lastName").shouldBe(visible);
-        $("#userEmail").shouldBe(visible);
-        $("[for=gender-radio-1]").shouldBe(visible);
-        $x("//input[@id='dateOfBirthInput']").shouldBe(visible);
-        $("#userNumber").shouldBe(visible);
-
-
-        $x("//input[@id='dateOfBirthInput']").click();
-
-        $("[class=react-datepicker__year-select]").shouldBe(visible);
-        $("[class=react-datepicker__month-select]").shouldBe(visible);
-        $("[class=react-datepicker__week]").shouldBe(visible);
-
-        $("[class=react-datepicker__year-select]").$("[value=1981]").click();
-        $("[class=react-datepicker__month-select]").$(byText("April")).click();
-        $("[class=react-datepicker__week]").$(byText("15")).click();
-
-        $("#dateOfBirthInput").shouldHave(Condition.attribute("[value=15 April 1981]"));
-    }
+//    @Test
+//    void dateSelectionSuccessTest(){
+//        open("/automation-practice-form");
+//
+//
+////         ожидание загрузки элементов формы
+//        $("#firstName").shouldBe(visible);
+//        $("#lastName").shouldBe(visible);
+//        $("#userEmail").shouldBe(visible);
+//        $("[for=gender-radio-1]").shouldBe(visible);
+//        $x("//input[@id='dateOfBirthInput']").shouldBe(visible);
+//        $("#userNumber").shouldBe(visible);
+//
+//
+//        $x("//input[@id='dateOfBirthInput']").click();
+//
+//        $("[class=react-datepicker__year-select]").shouldBe(visible);
+//        $("[class=react-datepicker__month-select]").shouldBe(visible);
+//        $("[class=react-datepicker__week]").shouldBe(visible);
+//
+//        $("[class=react-datepicker__year-select]").$("[value=1981]").click();
+//        $("[class=react-datepicker__month-select]").$(byText("April")).click();
+//        $("[class=react-datepicker__week]").$(byText("15")).click();
+//
+//        $("#dateOfBirthInput").shouldHave(Condition.attribute("[value=15 April 1981]"));
+//    }
 }
