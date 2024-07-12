@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -51,10 +53,22 @@ public class practiceFormTests {
 //        $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+    }
 
+    @Test
+    void dateSelectionSuccessTest(){
+        open("/automation-practice-form");
+        $("#dateOfBirthInput").shouldBe(visible);
+        $("#dateOfBirthInput").click();
 
+        $("[class=react-datepicker__year-select]").shouldBe(visible);
+        $("[class=react-datepicker__month-select]").shouldBe(visible);
+        $("[class=react-datepicker__week]").shouldBe(visible);
 
+        $("[class=react-datepicker__year-select]").$("[value=1981]").click();
+        $("[class=react-datepicker__month-select]").$(byText("April")).click();
+        $("[class=react-datepicker__week]").$(byText("15")).click();
 
-
+        $("#dateOfBirthInput").shouldHave(Condition.attribute("[value=15 April 1981]"));
     }
 }
