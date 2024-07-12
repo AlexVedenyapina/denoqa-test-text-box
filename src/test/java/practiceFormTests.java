@@ -19,7 +19,7 @@ public class practiceFormTests {
     static void beforAll(){
         Configuration.browserSize ="1920x1080";
         Configuration.baseUrl= "https://demoqa.com";
-        Configuration.timeout = 60000;
+        Configuration.timeout = 10000;
     }
 
     @Test
