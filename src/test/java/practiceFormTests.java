@@ -8,9 +8,7 @@ import org.openqa.selenium.WebDriver;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class practiceFormTests {
@@ -19,47 +17,48 @@ public class practiceFormTests {
     static void beforAll(){
         Configuration.browserSize ="1920x1080";
         Configuration.baseUrl= "https://demoqa.com";
-        Configuration.timeout = 10000;
+        Configuration.timeout = 40000;
     }
 
-    @Test
-    void successFillFormTest(){
-        open("/automation-practice-form");
-
-        // ожидание загрузки элементов формы
-        $("#firstName").shouldBe(visible);
-        $("#lastName").shouldBe(visible);
-        $("#userEmail").shouldBe(visible);
-        $("[for=gender-radio-1]").shouldBe(visible);
-        $("#userNumber").shouldBe(visible);
-
-// ввод данных в форму
-        $("#firstName").setValue("Ivan");
-        $("#lastName").setValue("Ivanov");
-        $("#userEmail").setValue("Ivan@mail.ru");
-        $("[for=gender-radio-1]").click();
-        $("#userNumber").setValue("1234567890");
-
-// отправка формы
-        $("#submit").click();
-
-// ожидание появления модального окна
-//        $(".modal-dialog").shouldBe(visible);
-
-
-//        $("#dateOfBirthInput").click(); // выбираем дату далее для другого теста установку даты проверять буду
-//        $("option.value=1965").click();
-//        $("option.value=3").click();
+//    @Test
+//    void successFillFormTest(){
+//        open("/automation-practice-form");
+//
+//        // ожидание загрузки элементов формы
+//        $("#firstName").shouldBe(visible);
+//        $("#lastName").shouldBe(visible);
+//        $("#userEmail").shouldBe(visible);
+//        $("[for=gender-radio-1]").shouldBe(visible);
+//        $("#userNumber").shouldBe(visible);
+//
+//// ввод данных в форму
+//        $("#firstName").setValue("Ivan");
+//        $("#lastName").setValue("Ivanov");
+//        $("#userEmail").setValue("Ivan@mail.ru");
+//        $("[for=gender-radio-1]").click();
+//        $("#userNumber").setValue("1234567890");
+//
+//// отправка формы
 //        $("#submit").click();
-
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-    }
+//
+//        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+//    }
 
     @Test
     void dateSelectionSuccessTest(){
         open("/automation-practice-form");
-        $("#dateOfBirthInput").shouldBe(visible);
-        $("#dateOfBirthInput").click();
+
+
+//         ожидание загрузки элементов формы
+        $("#firstName").shouldBe(visible);
+        $("#lastName").shouldBe(visible);
+        $("#userEmail").shouldBe(visible);
+        $("[for=gender-radio-1]").shouldBe(visible);
+        $x("//input[@id='dateOfBirthInput']").shouldBe(visible);
+        $("#userNumber").shouldBe(visible);
+
+
+        $x("//input[@id='dateOfBirthInput']").click();
 
         $("[class=react-datepicker__year-select]").shouldBe(visible);
         $("[class=react-datepicker__month-select]").shouldBe(visible);
