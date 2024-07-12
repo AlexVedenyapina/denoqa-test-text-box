@@ -20,29 +20,29 @@ public class practiceFormTests {
         Configuration.timeout = 40000;
     }
 
-//    @Test
-//    void successFillFormTest(){
-//        open("/automation-practice-form");
-//
-//        // ожидание загрузки элементов формы
-//        $("#firstName").shouldBe(visible);
-//        $("#lastName").shouldBe(visible);
-//        $("#userEmail").shouldBe(visible);
-//        $("[for=gender-radio-1]").shouldBe(visible);
-//        $("#userNumber").shouldBe(visible);
-//
-//// ввод данных в форму
-//        $("#firstName").setValue("Ivan");
-//        $("#lastName").setValue("Ivanov");
-//        $("#userEmail").setValue("Ivan@mail.ru");
-//        $("[for=gender-radio-1]").click();
-//        $("#userNumber").setValue("1234567890");
-//
-//// отправка формы
-//        $("#submit").click();
-//
-//        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-//    }
+    @Test
+    void successFillFormTest(){
+        open("/automation-practice-form");
+
+        // ожидание загрузки элементов формы
+        $("#firstName").shouldBe(visible);
+        $("#lastName").shouldBe(visible);
+        $("#userEmail").shouldBe(visible);
+        $("[for=gender-radio-1]").shouldBe(visible);
+        $("#userNumber").shouldBe(visible);
+
+// ввод данных в форму
+        $("#firstName").setValue("Ivan");
+        $("#lastName").setValue("Ivanov");
+        $("#userEmail").setValue("Ivan@mail.ru");
+        $("[for=gender-radio-1]").click();
+        $("#userNumber").setValue("1234567890");
+
+// отправка формы
+        $("#submit").click();
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+    }
 
     @Test
     void dateSelectionSuccessTest(){
